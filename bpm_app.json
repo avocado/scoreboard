@@ -1,0 +1,22 @@
+{
+  "name": "bpm_app",
+  "bpm": "1.0.0",
+  "bpm:build": {
+    "bpm_libs.js": {
+      "directories": [
+        "lib"
+      ],
+      "minifier": "uglify-js"
+    },
+    "bpm_styles.css": {
+      "directories": [
+        "css"
+      ]
+    }
+  },
+  "dependencies": {
+    "jquery": ">= 0",
+    "sproutcore": ">= 0-pre",
+    "sproutcore-datastore": ">= 0-pre"
+  }
+}
