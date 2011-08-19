@@ -3,21 +3,53 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.match .home-team, .match .away-team {
+.header * {
+  font-weight: bold;
+}
+
+.matches .home-team, .matches .away-team {
   display: inline-block;
   width: 150px;
+  text-align: left;
 }
-
-.matches > *:nth-child(odd) {
+.matches .match {
+  background-color: #ddd;
+}
+.matches .match:nth-child(odd) {
   background-color: #eee;
 }
-
 .match .home-score, .match .away-score {
   width: 2em;
   text-align: center;
 }
-
-.match .completed {
-  display: inline;
+.matches .standings {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+.matches .completed {
+  width: 100px;
+  display: inline-block;
+  text-align: center;
 }
 
+.teams .name, .teams .completed, .teams .won, 
+.teams .draw, .teams .lost, .teams .score {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+}
+.teams .completed {
+  width: 100px;
+}
+.teams .name {
+  text-align: left;
+  width: 150px;
+}
+.teams .item .name {
+  font-weight: normal;
+}
+
+.teams td {
+  text-align: center;
+}

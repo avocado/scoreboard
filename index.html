@@ -5,41 +5,71 @@
   <title>Plan</title>
 </head>
 <body>
-  <h1>Game Plan</h1>
-
   <script type="text/x-handlebars" data-template-name="team-list-view">
-  <div class="team">
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="match-list-view">
+  <span class="home-team">{{content.homeTeam.name}}</span>
+  <span class="away-team">{{content.awayTeam.name}}</span>
+  <span class="standings">
+  <span class="home-score">
+    {{view Plan.ScoreField valueBinding="content.homeScore" class="home-score"}}
+  </span>
+  <span class="away-score">
+    {{view Plan.ScoreField valueBinding="content.awayScore" class="away-score"}}
+  </span>
+  </span>
+  <span class="completed">
+    {{view SC.Checkbox valueBinding="content.completed"}}
+  </span>
+
+  </script>
+  
+  <script type="text/x-handlebars" data-template-name="standings-view">
+  <div class="teams">
+  <div class="header">
+    <span class="name">Team</span>
+    <span class="completed">Completed</span>
+    <span class="won">Won</span>
+    <span class="draw">Draw</span>
+    <span class="lost">Lost</span>
+    <span class="score">Score</span>
+  </div>
+    {{#collection contentBinding="content" itemClass="team"}}
     <span class="name">{{content.name}}</span>
     <span class="completed">{{content.completed}}</span>
     <span class="won">{{content.won}}</span>
     <span class="draw">{{content.draw}}</span>
     <span class="lost">{{content.lost}}</span>
     <span class="score">{{content.score}}</span>
+    {{/collection}}
   </div>
   </script>
+  
+  <script type="text/x-handlebars" data-template-name="group-view">
 
-  <script type="text/x-handlebars" data-template-name="match-list-view">
-  <div class="match">
-  <span class="home-team">{{content.homeTeam.name}}</span>
-  <span class="away-team">{{content.awayTeam.name}}</span>
-  {{view Plan.ScoreField valueBinding="content.homeScore" class="home-score"}}
-  {{view Plan.ScoreField valueBinding="content.awayScore" class="away-score"}}
-  {{view SC.Checkbox valueBinding="content.completed" class="completed"}}
-  </div>
+
+    <h3>Matches</h3>
+    <div class="matches">
+    <div class="header">
+      <span class="home-team">Home</span>
+      <span class="away-team">Away</span>
+      <span class="standings">Standings</span>
+      <span class="completed">Completed?</span>
+    </div>
+    {{#collection contentBinding="content.matches" itemClass="match"}}
+      {{view templateName="match-list-view" contentBinding="content"}}
+    {{/collection}}
+    </div>
   </script>
 
   <script type="text/x-handlebars">
-  {{#collection contentBinding="Plan.groupsController" class="group"}}
-  <h2>Group {{content.name}}</h2>
-  <h3>Teams</h3>
-  {{#collection contentBinding="content.teams" class="teams"}}
-  {{view templateName="team-list-view" contentBinding="content"}}
-  {{/collection}}
-  <h3>Matches</h3>
-  {{#collection contentBinding="content.matches" class="matches"}}
-  {{view templateName="match-list-view" contentBinding="content"}}
-  {{/collection}}
-  {{/collection}}
+    <h1>SproutCompetition</h1>    
+    <h2>Standings</h2>
+    {{view contentBinding="Plan.standingsController" templateName="standings-view"}}
+    
+    {{view contentBinding="Plan.groupController.content" templateName="group-view"}}
   </script>
 </body>
 
