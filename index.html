@@ -8,7 +8,7 @@
   <script type="text/x-handlebars" data-template-name="match-list-view">
   <span class="home-team">{{content.homeTeam.name}}</span>
   <span class="away-team">{{content.awayTeam.name}}</span>
-  <span class="results">
+  <span class="results" {{bindAttr class="content.isCompleted"}}>
   <span class="home-score">
     {{view Plan.ScoreField valueBinding="content.homeScore"}}
   </span>
@@ -27,6 +27,8 @@
     <span class="won"><abbr title="Won">W</abbr></span>
     <span class="draw"><abbr title="Draw">D</abbr></span>
     <span class="lost"><abbr title="Lost">L</abbr></span>
+    <span class="goals-for"><abbr title="Goals For">+</abbr></span>
+    <span class="goals-against"><abbr title="Goals Against">-</abbr></span>
     <span class="points"><abbr title="Points">Pts</abbr></span>
   </div>
     {{#collection contentBinding="content" itemClass="team"}}
@@ -35,6 +37,8 @@
     <span class="won">{{content.won}}</span>
     <span class="draw">{{content.draw}}</span>
     <span class="lost">{{content.lost}}</span>
+    <span class="goals-for">{{content.goalsFor}}</span>
+    <span class="goals-against">{{content.goalsAgainst}}</span>
     <span class="points">{{content.points}}</span>
     {{/collection}}
   </div>
