@@ -2,61 +2,51 @@
 <head>
   <link rel="stylesheet" href="assets/bpm_styles.css" type="text/css" media="screen" charset="utf-8" />
   <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" charset="utf-8" />
-  <title>Plan</title>
+  <title>Scoreboard</title>
 </head>
 <body>
-  <script type="text/x-handlebars" data-template-name="team-list-view">
-
-  </script>
-
   <script type="text/x-handlebars" data-template-name="match-list-view">
   <span class="home-team">{{content.homeTeam.name}}</span>
   <span class="away-team">{{content.awayTeam.name}}</span>
-  <span class="standings">
+  <span class="results">
   <span class="home-score">
-    {{view Plan.ScoreField valueBinding="content.homeScore" class="home-score"}}
+    {{view Plan.ScoreField valueBinding="content.homeScore"}}
   </span>
   <span class="away-score">
-    {{view Plan.ScoreField valueBinding="content.awayScore" class="away-score"}}
+    {{view Plan.ScoreField valueBinding="content.awayScore"}}
   </span>
   </span>
-  <span class="completed">
-    {{view SC.Checkbox valueBinding="content.completed"}}
-  </span>
-
   </script>
   
   <script type="text/x-handlebars" data-template-name="standings-view">
-  <div class="teams">
+  <div class="standings">
+  <h2>Standings</h2>
   <div class="header">
     <span class="name">Team</span>
-    <span class="completed">Completed</span>
-    <span class="won">Won</span>
-    <span class="draw">Draw</span>
-    <span class="lost">Lost</span>
-    <span class="score">Score</span>
+    <span class="played"><abbr title="Played">Pld</abbr></span>
+    <span class="won"><abbr title="Won">W</abbr></span>
+    <span class="draw"><abbr title="Draw">D</abbr></span>
+    <span class="lost"><abbr title="Lost">L</abbr></span>
+    <span class="points"><abbr title="Points">Pts</abbr></span>
   </div>
     {{#collection contentBinding="content" itemClass="team"}}
     <span class="name">{{content.name}}</span>
-    <span class="completed">{{content.completed}}</span>
+    <span class="played">{{content.played}}</span>
     <span class="won">{{content.won}}</span>
     <span class="draw">{{content.draw}}</span>
     <span class="lost">{{content.lost}}</span>
-    <span class="score">{{content.score}}</span>
+    <span class="points">{{content.points}}</span>
     {{/collection}}
   </div>
   </script>
   
-  <script type="text/x-handlebars" data-template-name="group-view">
-
-
-    <h3>Matches</h3>
+  <script type="text/x-handlebars" data-template-name="matches-view">
     <div class="matches">
+    <h2>Matches</h2>    
     <div class="header">
-      <span class="home-team">Home</span>
-      <span class="away-team">Away</span>
-      <span class="standings">Standings</span>
-      <span class="completed">Completed?</span>
+      <span class="home-team">Home Team</span>
+      <span class="away-team">Away Team</span>
+      <span class="results">Results</span>
     </div>
     {{#collection contentBinding="content.matches" itemClass="match"}}
       {{view templateName="match-list-view" contentBinding="content"}}
@@ -65,11 +55,11 @@
   </script>
 
   <script type="text/x-handlebars">
-    <h1>SproutCompetition</h1>    
-    <h2>Standings</h2>
+    <h1><img src="images/sproutscoreboard.png" title="SproutScoreboard" alt="SproutScoreboard" /></h1>    
+    
     {{view contentBinding="Plan.standingsController" templateName="standings-view"}}
     
-    {{view contentBinding="Plan.groupController.content" templateName="group-view"}}
+    {{view contentBinding="Plan.groupController.content" templateName="matches-view"}}
   </script>
 </body>
 

@@ -1,28 +1,89 @@
 /* TODO: Add your app CSS here */
 * {
   font-family: Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
+body {
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+abbr {
+  cursor: help;
+  border-bottom: 1px dotted #000;
+}
+h1 {
+  margin: 0 0 20px 0;
+}
+
+h2 {
+  margin: 0 0 10px 0;
+  padding: 3px 5px 2px;
+  color: #fff;
+  background-color: #7ec350;
+  font-size: 20px;
+}
+
+.standings, .matches {
+  width: 480px;
+  margin-bottom: 20px;
+}
+
+.match, .team, .header {
+  padding: 3px 5px 2px;
+  border-bottom: 1px solid #e0ecf8;
+}
+
+.header {
+  border-bottom: 1px solid #7ec350;
+  margin-bottom: 2px;
+}
 .header * {
   font-weight: bold;
+  color: #438aba;
 }
+
+
+.standings .name {
+  display: inline-block;
+  text-align: left;
+  width: 170px;
+}
+
+.standings .played, 
+.standings .won, 
+.standings .draw, 
+.standings .lost, 
+.standings .goals-for,
+.standings .goals-against,
+.standings .points {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+}
+
+.standings .item .name {
+  font-weight: normal;
+}
+
 
 .matches .home-team, .matches .away-team {
   display: inline-block;
-  width: 150px;
+  width: 180px;
   text-align: left;
 }
-.matches .match {
-  background-color: #ddd;
+
+.match .results {
+  position: relative;
+  top: -1px;
 }
-.matches .match:nth-child(odd) {
-  background-color: #eee;
-}
-.match .home-score, .match .away-score {
+.match .home-score input, .match .away-score input {
   width: 2em;
   text-align: center;
 }
-.matches .standings {
+.matches .results {
   display: inline-block;
   width: 100px;
   text-align: center;
@@ -30,26 +91,5 @@
 .matches .completed {
   width: 100px;
   display: inline-block;
-  text-align: center;
-}
-
-.teams .name, .teams .completed, .teams .won, 
-.teams .draw, .teams .lost, .teams .score {
-  display: inline-block;
-  width: 50px;
-  text-align: center;
-}
-.teams .completed {
-  width: 100px;
-}
-.teams .name {
-  text-align: left;
-  width: 150px;
-}
-.teams .item .name {
-  font-weight: normal;
-}
-
-.teams td {
   text-align: center;
 }

@@ -4,12 +4,13 @@
 
 Small SproutCore 2.0 demo app. Makes use of the following features:
 
-  * Including SproutCore with BPM and using `spade.require` to load packages into  application
+  * Basic BPM app setup with packages `sproutcore` and `sproutcore-datastore`
+  * Using `spade.require` to use packages in application
   * Using `SC.Store` with linked models (Team, Group and Match)
   * Content bindings in views: standings are updated when match results change
   * Using computed properties for each team's won/draw/lost/score statistics
 
-For demo purposes, fixtures are used to create four teams competing in one group. All teams play home and away matches. Matches are auto-generated based on group size. 
+Fixtures are used to create four teams competing in one group. All teams play home and away matches. Matches are auto-generated based on group size. 
 
 For now, all records are set up on app initialization. In a real world app, teams, groups and matches should of course be managed in a separate utility.
 
