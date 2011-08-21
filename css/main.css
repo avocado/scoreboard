@@ -68,28 +68,14 @@ h2 {
   width: 50px;
   font-weight: bold;
 }
-
 .standings .item .name {
   font-weight: normal;
 }
-
 
 .matches .home-team, .matches .away-team {
   display: inline-block;
   width: 180px;
   text-align: left;
-}
-
-.match .results {
-  position: relative;
-  top: -1px;
-}
-.match .results.is-completed {
-  background-color: #7ec350;
-}
-.match .home-score input, .match .away-score input {
-  width: 2em;
-  text-align: center;
 }
 .matches .results {
   display: inline-block;
@@ -99,5 +85,17 @@ h2 {
 .matches .completed {
   width: 100px;
   display: inline-block;
+  text-align: center;
+}
+
+.match.is-completed {
+  background: transparent url(../images/done.png) top right no-repeat;
+}
+.match .results {
+  position: relative;
+  top: -1px;
+}
+.match .results input {
+  width: 2em;
   text-align: center;
 }
