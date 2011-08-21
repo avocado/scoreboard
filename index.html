@@ -1,23 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
   <link rel="stylesheet" href="assets/bpm_styles.css" type="text/css" media="screen" charset="utf-8" />
   <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" charset="utf-8" />
   <title>Scoreboard</title>
 </head>
-<body>
-  <script type="text/x-handlebars" data-template-name="match-list-view">
-  <span class="home-team">{{content.homeTeam.name}}</span>
-  <span class="away-team">{{content.awayTeam.name}}</span>
-  <span class="results">
-    <span class="home-score">
-      {{view SC.TextField valueBinding="content.homeScore"}}
-    </span>
-    <span class="away-score">
-      {{view SC.TextField valueBinding="content.awayScore"}}
-    </span>
-  </span>
-  </script>
-  
+<body>  
   <script type="text/x-handlebars" data-template-name="standings-view">
   <div class="standings">
   <h2>Standings</h2>
@@ -27,8 +15,8 @@
     <span class="won"><abbr title="Won">W</abbr></span>
     <span class="draw"><abbr title="Draw">D</abbr></span>
     <span class="lost"><abbr title="Lost">L</abbr></span>
-    <span class="goals-for"><abbr title="Goals For">+</abbr></span>
-    <span class="goals-against"><abbr title="Goals Against">-</abbr></span>
+    <span class="goals-for"><abbr title="Goals For">GF</abbr></span>
+    <span class="goals-against"><abbr title="Goals Against">GA</abbr></span>
     <span class="points"><abbr title="Points">Pts</abbr></span>
   </div>
     {{#collection contentBinding="content" itemClass="team"}}
@@ -45,25 +33,34 @@
   </script>
   
   <script type="text/x-handlebars" data-template-name="matches-view">
-    <div class="matches">
-    <h2>Matches</h2>    
-    <div class="header">
-      <span class="home-team">Home Team</span>
-      <span class="away-team">Away Team</span>
-      <span class="results">Results</span>
-    </div>
-    {{#collection contentBinding="content.matches" itemClass="match" itemClassBinding="content.isCompleted"}}
-      {{view templateName="match-list-view" contentBinding="content"}}
-    {{/collection}}
-    </div>
+  <div class="matches">
+  <h2>Matches</h2>    
+  <div class="header">
+    <span class="home-team">Home Team</span>
+    <span class="away-team">Away Team</span>
+    <span class="results">Results</span>
+  </div>
+  {{#collection contentBinding="content.matches" itemClass="match" itemClassBinding="content.isCompleted"}}
+    <span class="home-team">{{content.homeTeam.name}}</span>
+    <span class="away-team">{{content.awayTeam.name}}</span>
+    <span class="results">
+      <span class="home-score">
+        {{view SC.TextField valueBinding="content.homeScore"}}
+      </span>
+      <span class="away-score">
+        {{view SC.TextField valueBinding="content.awayScore"}}
+      </span>
+    </span>
+  {{/collection}}
+  </div>
   </script>
 
   <script type="text/x-handlebars">
-    <h1><img src="images/logo.png" title="Scoreboard" alt="Scoreboard" /></h1>    
-    
-    {{view contentBinding="Score.standingsController" templateName="standings-view"}}
-    
-    {{view contentBinding="Score.groupController.content" templateName="matches-view"}}
+  <h1><img src="images/logo.png" title="Scoreboard" alt="Scoreboard" /></h1>    
+  
+  {{view contentBinding="Score.standingsController" templateName="standings-view"}}
+  
+  {{view contentBinding="Score.groupController.content" templateName="matches-view"}}
   </script>
 </body>
 

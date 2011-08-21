@@ -45,13 +45,11 @@ h2 {
   color: #438aba;
 }
 
-
 .standings .name {
   display: inline-block;
   text-align: left;
   width: 180px;
 }
-
 .standings .played, 
 .standings .won, 
 .standings .draw, 
@@ -63,7 +61,6 @@ h2 {
   width: 30px;
   text-align: center;
 }
-
 .standings .points {
   width: 50px;
   font-weight: bold;
