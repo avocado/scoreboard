@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "jquery": ">= 0",
-    "sproutcore": ">= 0-pre",
-    "sproutcore-datastore": ">= 0-pre"
+    "sproutcore": ">= 0.pre",
+    "sproutcore-datastore": ">= 0.pre"
   }
 }
